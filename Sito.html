@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Matteo Torcigliani</title>
+  <style>
+    :root {
+      --max-width: 800px;
+    }
+
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Helvetica Neue', sans-serif;
+      background: #fff;
+      color: #111;
+      display: flex;
+      justify-content: center;
+    }
+
+    .container {
+      width: 100%;
+      max-width: var(--max-width);
+      padding: 0 16px;
+      text-align: center;
+    }
+
+    header {
+      display: flex;
+      justify-content: flex-start;
+      align-items: center;
+      padding: 20px 0;
+    }
+
+    .logo {
+      width: 60px;
+      height: auto;
+    }
+
+    .avatar {
+      width: 90px;
+      height: 90px;
+      border-radius: 50%;
+      margin: 20px auto 10px;
+      object-fit: cover;
+    }
+
+    h1 {
+      font-size: 24px;
+      margin: 0;
+    }
+
+    .roles {
+      margin: 10px auto 25px;
+      font-size: 16px;
+      font-weight: 500;
+      color: #555;
+      animation: fade 2s infinite alternate;
+    }
+
+    @keyframes fade {
+      0% { opacity: 1; }
+      100% { opacity: 0.6; }
+    }
+
+    .clips {
+      display: flex;
+      overflow-x: auto;
+      gap: 12px;
+      padding: 10px 0 30px;
+      scroll-snap-type: x mandatory;
+    }
+
+    .clips video {
+      width: 240px;
+      flex-shrink: 0;
+      border-radius: 10px;
+      scroll-snap-align: center;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    }
+
+    .socials {
+      margin: 20px 0 40px;
+    }
+
+    .socials a,
+    .email-btn {
+      display: inline-block;
+      margin: 8px 12px;
+      background: none;
+      border: none;
+      cursor: pointer;
+    }
+
+    .socials img {
+      width: 32px;
+      height: 32px;
+      transition: transform 0.2s ease;
+    }
+
+    .socials img:hover {
+      transform: scale(1.1);
+    }
+
+    .copied {
+      font-size: 13px;
+      color: green;
+      margin-top: 5px;
+    }
+
+    @media (min-width: 700px) {
+      .avatar {
+        width: 100px;
+        height: 100px;
+      }
+
+      .clips video {
+        width: 280px;
+      }
+
+      h1 {
+        font-size: 28px;
+      }
+
+      .roles {
+        font-size: 18px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+
+    <header>
+      <img src="logo.jpg" alt="Logo" class="logo"/>
+    </header>
+
+    <img src="avatar.jpg" alt="Matteo" class="avatar" />
+    <h1>Matteo Torcigliani</h1>
+
+    <div class="roles">
+      Web Designer / Video Editor 
+    </div>
+
+    <div class="clips">
+      <video src="clip1.mp4" autoplay muted loop playsinline></video>
+      <video src="clip1-1080p.mp4" autoplay muted loop playsinline></video>
+      <video src="clip3.mp4" autoplay muted loop playsinline></video>
+    </div>
+
+    <div class="socials">
+      <a href="https://www.instagram.com/matteo.torcigliani?igsh=aDdyNjJicm1tNmNt&utm_source=qr" target="_blank">
+        <img src="instagram.png" alt="Instagram" />
+      </a>
+      <button class="email-btn" onclick="copyEmail()">
+        <img src="gmail.png" alt="Gmail" />
+      </button>
+      <div class="copied" id="copied-text" style="display:none;">Email copiata negli appunti!</div>
+    </div>
+
+  </div>
+
+  <script>
+    function copyEmail() {
+      const email = "matteo.torcigliani.lavoro@gmail.com";
+      navigator.clipboard.writeText(email).then(() => {
+        document.getElementById("copied-text").style.display = "block";
+        setTimeout(() => {
+          document.getElementById("copied-text").style.display = "none";
+        }, 2000);
+      });
+    }
+  </script>
+
+</body>
+</html>
