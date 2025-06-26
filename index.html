@@ -80,8 +80,9 @@
 
 .carousel {
   display: flex;
-  transition: transform 0.4s ease;
   gap: 20px;
+  overflow-x: auto;
+  scroll-behavior: smooth;
 }
 
 .carousel-item {
@@ -204,25 +205,60 @@
     }
   </script>
 
- <script>
+<script>
   const carousel = document.getElementById('carousel');
-  const itemWidth = carousel.querySelector('.carousel-item').offsetWidth + 20; // 20px gap
-  let scrollPosition = 0;
+  const itemWidth = carousel.querySelector('.carousel-item').offsetWidth + 20;
 
   function scrollCarousel(direction) {
-    const visibleItems = 3;
-    const maxScroll = (carousel.children.length - visibleItems) * itemWidth;
-
-    scrollPosition += direction * itemWidth;
-
-    if (scrollPosition < 0) {
-      scrollPosition = maxScroll; // loop to end
-    } else if (scrollPosition > maxScroll) {
-      scrollPosition = 0; // loop to start
-    }
-
-    carousel.style.transform = `translateX(-${scrollPosition}px)`;
+    carousel.scrollBy({
+      left: direction * itemWidth,
+      behavior: 'smooth'
+    });
   }
+</script>
+
+  <script>
+  let isDown = false;
+  let startX;
+  let scrollLeft;
+
+  const carouselEl = document.getElementById('carousel');
+  carouselEl.addEventListener('mousedown', (e) => {
+    isDown = true;
+    startX = e.pageX - carouselEl.offsetLeft;
+    scrollLeft = carouselEl.scrollLeft;
+    carouselEl.style.cursor = 'grabbing';
+  });
+
+  carouselEl.addEventListener('mouseleave', () => {
+    isDown = false;
+    carouselEl.style.cursor = 'grab';
+  });
+
+  carouselEl.addEventListener('mouseup', () => {
+    isDown = false;
+    carouselEl.style.cursor = 'grab';
+  });
+
+  carouselEl.addEventListener('mousemove', (e) => {
+    if (!isDown) return;
+    e.preventDefault();
+    const x = e.pageX - carouselEl.offsetLeft;
+    const walk = (x - startX) * 2;
+    carouselEl.scrollLeft = scrollLeft - walk;
+  });
+
+  // Touch per mobile
+  carouselEl.addEventListener('touchstart', (e) => {
+    startX = e.touches[0].pageX;
+    scrollLeft = carouselEl.scrollLeft;
+  });
+
+  carouselEl.addEventListener('touchmove', (e) => {
+    const x = e.touches[0].pageX;
+    const walk = (x - startX) * 2;
+    carouselEl.scrollLeft = scrollLeft - walk;
+  });
 </script>
   
 </body>
