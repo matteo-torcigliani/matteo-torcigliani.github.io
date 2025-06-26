@@ -2,175 +2,156 @@
 <html lang="it">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Matteo Torcigliani</title>
   <style>
     body {
       margin: 0;
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      background: #111;
+      font-family: 'Arial', sans-serif;
+      background: linear-gradient(135deg, #111, #222);
       color: white;
-      text-align: center;
+      overflow-x: hidden;
     }
 
     .hero {
       height: 100vh;
-      background: linear-gradient(135deg, #1e1e1e, #2c2c2c);
       display: flex;
       flex-direction: column;
       align-items: center;
       justify-content: center;
-      position: relative;
-      overflow: hidden;
+      background: radial-gradient(circle, #333 0%, #111 100%);
+      animation: bgAnimation 8s infinite alternate;
     }
 
-    .hero::before {
-      content: "";
-      position: absolute;
-      width: 200%;
-      height: 200%;
-      background: radial-gradient(circle, rgba(255,255,255,0.03) 20%, transparent 80%);
-      animation: rotate 30s linear infinite;
+    @keyframes bgAnimation {
+      0% { background: radial-gradient(circle, #222 0%, #000 100%); }
+      100% { background: radial-gradient(circle, #000 0%, #222 100%); }
     }
 
-    @keyframes rotate {
-      0% { transform: rotate(0deg); }
-      100% { transform: rotate(360deg); }
-    }
-
-    .hero-content {
-      position: relative;
-      z-index: 2;
-    }
-
-    .avatar {
-      width: 120px;
-      height: 120px;
+    .hero img {
+      width: 100px;
+      height: 100px;
       border-radius: 50%;
       object-fit: cover;
-      border: 4px solid white;
-      margin-bottom: 20px;
+      margin-bottom: 1rem;
     }
 
     h1 {
       margin: 0;
-      font-size: 2.2em;
+      font-size: 1.8rem;
     }
 
     p {
-      margin: 5px 0 20px;
-      font-size: 1em;
+      margin-top: 0.5rem;
+      font-style: italic;
       color: #ccc;
     }
 
     .services {
-      background: #1a1a1a;
-      padding: 60px 20px;
+      text-align: center;
+      margin: 3rem auto;
     }
 
     .services h2 {
+      margin-bottom: 1rem;
+    }
+
+    .services button {
+      background-color: #333;
+      border: 1px solid #555;
       color: white;
-      margin-bottom: 30px;
-    }
-
-    .cards {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 20px;
-    }
-
-    .service-card {
-      background: white;
-      color: #111;
-      padding: 20px 30px;
-      border-radius: 10px;
-      min-width: 160px;
-      transition: 0.3s ease;
-      font-size: 1.1em;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.2);
-    }
-
-    .service-card:hover {
-      transform: translateY(-6px);
-      box-shadow: 0 6px 16px rgba(0,0,0,0.25);
+      padding: 10px 15px;
+      margin: 0 10px;
+      border-radius: 8px;
+      cursor: pointer;
     }
 
     .carousel {
-      background: #111;
-      padding: 30px 10px;
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+      flex-wrap: wrap;
+      margin-bottom: 3rem;
     }
 
-    .carousel iframe {
-      width: 300px;
-      height: 530px;
-      border: none;
-      margin: 10px;
+    .carousel video {
+      width: 180px;
+      height: 320px;
+      border-radius: 10px;
+      object-fit: cover;
     }
 
     footer {
-      background: white;
-      padding: 20px 0;
+      background-color: #f1f1f1;
+      color: #111;
+      padding: 20px;
+      position: relative;
+    }
+
+    .footer-content {
       display: flex;
+      align-items: center;
       justify-content: center;
-      gap: 20px;
+      gap: 1.5rem;
     }
 
-    .icon {
-      width: 30px;
-      height: 30px;
+    .footer-icon {
+      width: 24px;
+      height: 24px;
       cursor: pointer;
-      transition: transform 0.2s;
     }
 
-    .icon:hover {
-      transform: scale(1.1);
-    }
-
-    .copied-msg {
-      display: none;
-      color: green;
-      margin-top: 10px;
+    .logo-footer {
+      position: absolute;
+      left: 15px;
+      bottom: 15px;
+      width: 30px;
     }
   </style>
 </head>
 <body>
 
-  <section class="hero">
-    <div class="hero-content">
-      <img src="avatar.jpg" alt="Avatar" class="avatar" />
-      <h1>Matteo Torcigliani</h1>
-      <p>Trasformo idee in emozioni</p>
-    </div>
-  </section>
+  <div class="hero">
+    <img src="https://avatars.githubusercontent.com/u/16840499" alt="profile">
+    <h1>Matteo Torcigliani</h1>
+    <p>Trasformo idee in emozioni</p>
+  </div>
 
-  <section class="services">
+  <div class="services">
     <h2>I miei servizi</h2>
-    <div class="cards">
-      <div class="service-card">🎬 Video Editing</div>
-      <div class="service-card">🌐 Web Design</div>
-    </div>
-  </section>
+    <button>🎬 Video Editing</button>
+    <button>💻 Web Design</button>
+  </div>
 
-  <section class="carousel">
-    <iframe src="https://player.vimeo.com/video/1096570765?h=c92375f57d" allowfullscreen></iframe>
-    <iframe src="https://player.vimeo.com/video/1096599600?h=149e7d62a6" allowfullscreen></iframe>
-    <iframe src="https://player.vimeo.com/video/1096570765?h=c92375f57d" allowfullscreen></iframe>
-  </section>
+  <div class="carousel">
+    <video autoplay muted loop playsinline>
+      <source src="https://vod-progressive.akamaized.net/exp=1719420635~acl=%2Fvimeo-prod-skyfire-std-us%2F01%2F4325%2F29%2F750849629%2F3453090732.mp4~hmac=9d6f8e18f55c271254875c73876d09a7b1e5dc610d9e170f3aef4476ad3ec00c/vimeo-prod-skyfire-std-us/01/4325/29/750849629/3453090732.mp4" type="video/mp4">
+    </video>
+    <video autoplay muted loop playsinline>
+      <source src="https://vod-progressive.akamaized.net/exp=1719420635~acl=%2Fvimeo-prod-skyfire-std-us%2F01%2F4325%2F29%2F750849629%2F3453090732.mp4~hmac=9d6f8e18f55c271254875c73876d09a7b1e5dc610d9e170f3aef4476ad3ec00c/vimeo-prod-skyfire-std-us/01/4325/29/750849629/3453090732.mp4" type="video/mp4">
+    </video>
+    <video autoplay muted loop playsinline>
+      <source src="https://vod-progressive.akamaized.net/exp=1719420635~acl=%2Fvimeo-prod-skyfire-std-us%2F01%2F4325%2F29%2F750849629%2F3453090732.mp4~hmac=9d6f8e18f55c271254875c73876d09a7b1e5dc610d9e170f3aef4476ad3ec00c/vimeo-prod-skyfire-std-us/01/4325/29/750849629/3453090732.mp4" type="video/mp4">
+    </video>
+  </div>
 
   <footer>
-    <img src="gmail.png" alt="Gmail" class="icon" onclick="copyEmail()" />
-    <img src="instagram.png" alt="Instagram" class="icon" onclick="window.open('https://www.instagram.com', '_blank')" />
+    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/4a/Logo_T.svg/2048px-Logo_T.svg.png" class="logo-footer" alt="Logo T">
+
+    <div class="footer-content">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/4/4e/Gmail_Icon.png" class="footer-icon" onclick="copyEmail()" title="Copia Email">
+      <a href="https://instagram.com/" target="_blank">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/a/a5/Instagram_icon.png" class="footer-icon" alt="Instagram">
+      </a>
+    </div>
   </footer>
-  <div id="copied" class="copied-msg">Email copiata!</div>
 
   <script>
     function copyEmail() {
-      const email = "matteo.torcigliani.lavoro@gmail.com";
-      navigator.clipboard.writeText(email).then(() => {
-        const msg = document.getElementById("copied");
-        msg.style.display = "block";
-        setTimeout(() => { msg.style.display = "none"; }, 2000);
+      navigator.clipboard.writeText("matteo.torcigliani.lavoro@gmail.com").then(function() {
+        alert("Email copiata negli appunti!");
+      }, function(err) {
+        alert("Errore nella copia: " + err);
       });
     }
   </script>
