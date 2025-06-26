@@ -5,178 +5,179 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Matteo Torcigliani</title>
   <style>
-    :root { --max-width: 800px; }
-
-    * { margin:0; padding:0; box-sizing:border-box; }
-
     body {
+      margin: 0;
+      padding: 0;
       font-family: 'Helvetica Neue', sans-serif;
-      background:#000;
-      color:#fff;
-      display:flex;
-      justify-content:center;
-      align-items:start;
-      min-height:100vh;
+      background-color: #000;
+      color: #fff;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
     }
 
-    .container {
-      width:100%; max-width:var(--max-width);
-      overflow:hidden;
-      text-align:center;
-      background:rgba(0,0,0,0.6);
+    .avatar {
+      width: 100px;
+      height: 100px;
+      border-radius: 50%;
+      margin-top: 40px;
+      object-fit: cover;
     }
 
-    /* hero video + avatar */
-    .hero {
-      position:relative;
-      width:100%;
-      height:calc(100vw * 0.56);
-      max-height:400px;
-      overflow:hidden;
+    h1 {
+      font-size: 28px;
+      margin: 20px 0 8px;
     }
-    .hero video {
-      position:absolute;
-      top:50%; left:50%;
-      width:auto; height:100%;
-      transform:translate(-50%,-50%);
-      filter:brightness(0.6);
-    }
-    .hero .avatar {
-      position:absolute;
-      top:50%; left:50%;
-      width:120px; height:120px;
-      border-radius:50%;
-      transform:translate(-50%,-50%);
-      border:3px solid #fff;
-    }
-    .hero h1, .hero p {
-      position:absolute;
-      left:50%;
-      transform:translateX(-50%);
-      color:#fff;
-      text-shadow:0 2px 5px rgba(0,0,0,0.5);
-    }
-    .hero h1 { top:70%; font-size:24px; }
-    .hero p  { top:80%; font-size:16px; }
 
-    /* servizi */
+    .subtitle {
+      font-size: 16px;
+      color: #ccc;
+      margin-bottom: 30px;
+    }
+
     .services {
-      background:#fff;
-      color:#111;
-      padding:20px 0;
-      text-align:center;
+      background-color: #111;
+      padding: 20px;
+      border-radius: 10px;
+      margin-bottom: 40px;
+      width: 90%;
+      max-width: 500px;
+      text-align: center;
     }
+
     .services h2 {
-      margin-bottom:12px;
-      font-size:22px;
-    }
-    .cards {
-      display:flex;
-      justify-content:center;
-      gap:20px;
-      padding:0 16px;
-    }
-    .card {
-      flex:1;
-      padding:12px;
-      border:1px solid #ddd;
-      border-radius:8px;
-      font-size:16px;
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      gap:8px;
-      background:#f9f9f9;
+      margin-bottom: 16px;
     }
 
-    /* carosello video */
-    .clips {
-      display:flex;
-      overflow-x:auto;
-      gap:12px;
-      padding:20px 16px;
-      scroll-snap-type:x mandatory;
-    }
-    .clips iframe {
-      flex:0 0 80%;
-      height:200px;
-      border:none;
-      border-radius:8px;
-      scroll-snap-align:center;
+    .service-buttons {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      flex-wrap: wrap;
     }
 
-    /* footer */
+    .service {
+      background-color: #222;
+      padding: 10px 20px;
+      border-radius: 10px;
+      color: #fff;
+      font-size: 16px;
+      cursor: default;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.3);
+    }
+
+    .carousel {
+      display: flex;
+      overflow-x: auto;
+      gap: 20px;
+      padding: 0 20px 40px;
+      scroll-snap-type: x mandatory;
+    }
+
+    .carousel iframe {
+      width: 300px;
+      height: 533px;
+      flex-shrink: 0;
+      scroll-snap-align: center;
+      border-radius: 10px;
+      border: none;
+      box-shadow: 0 4px 10px rgba(255,255,255,0.1);
+    }
+
     footer {
-      background:#111;
-      padding:15px;
-      position:relative;
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      gap:20px;
+      background-color: #fff;
+      color: #000;
+      width: 100%;
+      padding: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      box-sizing: border-box;
     }
-    footer img.icon {
-      width:30px;
-      height:30px;
-      cursor:pointer;
-      filter:invert(1);
+
+    .footer-left img {
+      width: 40px;
+      height: auto;
     }
-    footer .logo-ft {
-      position:absolute;
-      bottom:10px;
-      left:10px;
-      width:40px;
-      opacity:0.7;
+
+    .footer-right {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+    }
+
+    .footer-right img {
+      width: 28px;
+      height: 28px;
+      cursor: pointer;
+      transition: transform 0.2s ease;
+    }
+
+    .footer-right img:hover {
+      transform: scale(1.1);
+    }
+
+    .copied {
+      font-size: 13px;
+      color: green;
+      margin-top: 5px;
+      display: none;
     }
   </style>
 </head>
-
 <body>
-  <div class="container">
 
-    <!-- HERO con video + avatar + nome + claim -->
-    <div class="hero">
-      <video autoplay muted loop playsinline src="https://player.vimeo.com/external/1096599600.sd.mp4?s=149e7d62a6"></video>
-      <img src="avatar.jpg" alt="Matteo" class="avatar"/>
-      <h1>Matteo Torcigliani</h1>
-      <p>Trasformo idee in emozioni</p>
+  <!-- Avatar e Titolo -->
+  <img src="avatar.jpg" alt="Avatar Matteo" class="avatar" />
+  <h1>Matteo Torcigliani</h1>
+  <div class="subtitle">Trasformo idee in emozioni</div>
+
+  <!-- Servizi -->
+  <div class="services">
+    <h2>I miei servizi</h2>
+    <div class="service-buttons">
+      <div class="service">🎬 Video Editing</div>
+      <div class="service">💻 Web Design</div>
     </div>
-
-    <!-- SERVIZI con emoji -->
-    <section class="services">
-      <h2>I miei servizi</h2>
-      <div class="cards">
-        <div class="card">🎥  Video Editing</div>
-        <div class="card">🌐  Web Design</div>
-      </div>
-    </section>
-
-    <!-- CAROSELLO VIDEO (evidenza lavori) -->
-    <div class="clips">
-      <iframe src="https://player.vimeo.com/video/1096570765?h=c92375f57d&badge=0&autopause=0&player_id=0&app_id=58479" allow="autoplay; fullscreen; picture-in-picture"></iframe>
-      <!-- aggiungi altri tre iframe con progetti analoghi -->
-    </div>
-
-    <!-- FOOTER: icone Gmail e Instagram + logo brand -->
-    <footer>
-      <img src="gmail.png" alt="Email" class="icon" onclick="copyEmail()" title="Copia email"/>
-      <img src="instagram.png" alt="Instagram" class="icon" onclick="openInstagram()" title="Vai su Instagram"/>
-      <img src="logo.jpg" alt="Logo" class="logo-ft"/>
-    </footer>
-
   </div>
 
-<script>
-  function copyEmail() {
-    const email = "matteo.torcigliani.lavoro@gmail.com";
-    navigator.clipboard.writeText(email).then(() => {
-      alert("✉️ Email copiata negli appunti!");
-    });
-  }
-  function openInstagram() {
-    window.open("https://www.instagram.com/matteo.torcigliani/", "_blank");
-  }
-</script>
+  <!-- Carosello Vimeo -->
+  <div class="carousel">
+    <iframe src="https://player.vimeo.com/video/1096570765?h=c92375f57d" title="Clip 1" allowfullscreen></iframe>
+    <iframe src="https://player.vimeo.com/video/1096599600?h=149e7d62a6" title="Clip 2" allowfullscreen></iframe>
+    <iframe src="https://player.vimeo.com/video/1096570765?h=c92375f57d" title="Clip 3" allowfullscreen></iframe>
+  </div>
+
+  <!-- Footer -->
+  <footer>
+    <div class="footer-left">
+      <img src="logo.jpg" alt="Logo">
+    </div>
+    <div class="footer-right">
+      <button onclick="copyEmail()" style="background:none; border:none; padding:0;">
+        <img src="gmail.png" alt="Email Icon">
+      </button>
+      <a href="https://www.instagram.com/matteo.torcigliani?igsh=aDdyNjJicm1tNmNt&utm_source=qr" target="_blank">
+        <img src="instagram.png" alt="Instagram Icon">
+      </a>
+    </div>
+  </footer>
+
+  <div class="copied" id="copied-text">Email copiata negli appunti!</div>
+
+  <script>
+    function copyEmail() {
+      const email = "matteo.torcigliani.lavoro@gmail.com";
+      navigator.clipboard.writeText(email).then(() => {
+        const msg = document.getElementById("copied-text");
+        msg.style.display = "block";
+        setTimeout(() => {
+          msg.style.display = "none";
+        }, 2000);
+      });
+    }
+  </script>
 
 </body>
 </html>
