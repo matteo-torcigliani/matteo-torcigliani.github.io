@@ -64,20 +64,12 @@
       100% { opacity: 0.6; }
     }
 
-    .clips {
+    .reels {
       display: flex;
-      overflow-x: auto;
-      gap: 12px;
-      padding: 10px 0 30px;
-      scroll-snap-type: x mandatory;
-    }
-
-    .clips video {
-      width: 240px;
-      flex-shrink: 0;
-      border-radius: 10px;
-      scroll-snap-align: center;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      flex-direction: column;
+      align-items: center;
+      gap: 24px;
+      margin-bottom: 40px;
     }
 
     .socials {
@@ -115,10 +107,6 @@
         height: 100px;
       }
 
-      .clips video {
-        width: 280px;
-      }
-
       h1 {
         font-size: 28px;
       }
@@ -144,10 +132,11 @@
       Web Designer / Video Editor 
     </div>
 
-    <div class="clips">
-      <video src="clip1.mp4" autoplay muted loop playsinline></video>
-      <video src="clip1-1080p.mp4" autoplay muted loop playsinline></video>
-      <video src="clip3.mp4" autoplay muted loop playsinline></video>
+    <h2 style="font-weight:500; font-size:20px; margin-bottom:10px;">Alcuni dei miei lavori</h2>
+
+    <div class="reels">
+      <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/reel/INSERISCI-REEL-1/" data-instgrm-version="14" style="width:100%; max-width:320px; margin: 0 auto;"></blockquote>
+      <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/reel/INSERISCI-REEL-2/" data-instgrm-version="14" style="width:100%; max-width:320px; margin: 0 auto;"></blockquote>
     </div>
 
     <div class="socials">
@@ -161,6 +150,8 @@
     </div>
 
   </div>
+
+  <script async src="//www.instagram.com/embed.js"></script>
 
   <script>
     function copyEmail() {
