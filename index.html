@@ -7,151 +7,147 @@
   <style>
     body {
       margin: 0;
-      font-family: 'Arial', sans-serif;
-      background: linear-gradient(135deg, #111, #222);
+      font-family: "Segoe UI", sans-serif;
+      background: linear-gradient(145deg, #1c1c1c, #121212);
       color: white;
-      overflow-x: hidden;
+      text-align: center;
     }
 
     .hero {
-      height: 100vh;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      background: radial-gradient(circle, #333 0%, #111 100%);
-      animation: bgAnimation 8s infinite alternate;
-    }
-
-    @keyframes bgAnimation {
-      0% { background: radial-gradient(circle, #222 0%, #000 100%); }
-      100% { background: radial-gradient(circle, #000 0%, #222 100%); }
+      padding: 80px 20px 30px;
     }
 
     .hero img {
-      width: 100px;
-      height: 100px;
-      border-radius: 50%;
+      width: 120px;
+      height: 120px;
       object-fit: cover;
-      margin-bottom: 1rem;
+      border-radius: 50%;
+      border: 3px solid white;
     }
 
     h1 {
-      margin: 0;
-      font-size: 1.8rem;
+      margin: 20px 0 5px;
+      font-size: 24px;
     }
 
     p {
-      margin-top: 0.5rem;
-      font-style: italic;
+      font-size: 16px;
       color: #ccc;
     }
 
     .services {
-      text-align: center;
-      margin: 3rem auto;
+      background: rgba(255,255,255,0.05);
+      border-radius: 10px;
+      margin: 20px auto;
+      padding: 20px;
+      width: fit-content;
+      box-shadow: 0 0 10px rgba(0,0,0,0.2);
     }
 
     .services h2 {
-      margin-bottom: 1rem;
+      margin-bottom: 10px;
     }
 
-    .services button {
-      background-color: #333;
-      border: 1px solid #555;
+    .button {
+      background: #2e2e2e;
       color: white;
-      padding: 10px 15px;
-      margin: 0 10px;
+      border: none;
+      padding: 10px 20px;
+      margin: 5px;
       border-radius: 8px;
       cursor: pointer;
+      font-size: 14px;
     }
 
     .carousel {
       display: flex;
       justify-content: center;
-      gap: 1rem;
       flex-wrap: wrap;
-      margin-bottom: 3rem;
+      gap: 20px;
+      padding: 40px 10px;
     }
 
-    .carousel video {
+    .carousel iframe {
       width: 180px;
       height: 320px;
       border-radius: 10px;
-      object-fit: cover;
+      pointer-events: none;
     }
 
     footer {
-      background-color: #f1f1f1;
-      color: #111;
+      background: #f2f2f2;
+      color: #000;
       padding: 20px;
       position: relative;
     }
 
-    .footer-content {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 1.5rem;
+    .footer-logo {
+      position: absolute;
+      bottom: 20px;
+      left: 20px;
+      width: 30px;
     }
 
-    .footer-icon {
+    .footer-icons {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      align-items: center;
+    }
+
+    .footer-icons img {
       width: 24px;
       height: 24px;
       cursor: pointer;
     }
 
-    .logo-footer {
-      position: absolute;
-      left: 15px;
-      bottom: 15px;
-      width: 30px;
+    .copied {
+      font-size: 12px;
+      color: green;
+      margin-top: 8px;
+      display: none;
     }
   </style>
 </head>
 <body>
 
+  <!-- HERO -->
   <div class="hero">
-    <img src="https://avatars.githubusercontent.com/u/16840499" alt="profile">
+    <img src="avatar.jpg" alt="Avatar">
     <h1>Matteo Torcigliani</h1>
     <p>Trasformo idee in emozioni</p>
   </div>
 
+  <!-- SERVIZI -->
   <div class="services">
     <h2>I miei servizi</h2>
-    <button>🎬 Video Editing</button>
-    <button>💻 Web Design</button>
+    <button class="button">🎬 Video Editing</button>
+    <button class="button">💻 Web Design</button>
   </div>
 
+  <!-- VIDEO CAROUSEL -->
   <div class="carousel">
-    <video autoplay muted loop playsinline>
-      <source src="https://vod-progressive.akamaized.net/exp=1719420635~acl=%2Fvimeo-prod-skyfire-std-us%2F01%2F4325%2F29%2F750849629%2F3453090732.mp4~hmac=9d6f8e18f55c271254875c73876d09a7b1e5dc610d9e170f3aef4476ad3ec00c/vimeo-prod-skyfire-std-us/01/4325/29/750849629/3453090732.mp4" type="video/mp4">
-    </video>
-    <video autoplay muted loop playsinline>
-      <source src="https://vod-progressive.akamaized.net/exp=1719420635~acl=%2Fvimeo-prod-skyfire-std-us%2F01%2F4325%2F29%2F750849629%2F3453090732.mp4~hmac=9d6f8e18f55c271254875c73876d09a7b1e5dc610d9e170f3aef4476ad3ec00c/vimeo-prod-skyfire-std-us/01/4325/29/750849629/3453090732.mp4" type="video/mp4">
-    </video>
-    <video autoplay muted loop playsinline>
-      <source src="https://vod-progressive.akamaized.net/exp=1719420635~acl=%2Fvimeo-prod-skyfire-std-us%2F01%2F4325%2F29%2F750849629%2F3453090732.mp4~hmac=9d6f8e18f55c271254875c73876d09a7b1e5dc610d9e170f3aef4476ad3ec00c/vimeo-prod-skyfire-std-us/01/4325/29/750849629/3453090732.mp4" type="video/mp4">
-    </video>
+    <iframe src="https://player.vimeo.com/video/959661947?background=1&autoplay=1&loop=1&muted=1" frameborder="0" allow="autoplay"></iframe>
+    <iframe src="https://player.vimeo.com/video/959661950?background=1&autoplay=1&loop=1&muted=1" frameborder="0" allow="autoplay"></iframe>
+    <iframe src="https://player.vimeo.com/video/959661952?background=1&autoplay=1&loop=1&muted=1" frameborder="0" allow="autoplay"></iframe>
   </div>
 
+  <!-- FOOTER -->
   <footer>
-    <img src="https://matteo-torcigliani.github.io/logo.png" class="logo-footer" alt="Logo Matteo Torcigliani">
-
-    <div class="footer-content">
-      <img src="gmail.png" class="footer-icon" onclick="copyEmail()" title="Copia Email">
-      <a href="https://instagram.com/" target="_blank">
-        <img src="instagram.png" class="footer-icon" alt="Instagram">
-      </a>
+    <img class="footer-logo" src="logo.jpg" alt="Logo">
+    <div class="footer-icons">
+      <img src="gmail.png" alt="Gmail" onclick="copyEmail()">
+      <img src="instagram.png" alt="Instagram" onclick="window.open('https://www.instagram.com/tuo_username_lavoro', '_blank')">
     </div>
+    <div id="copied" class="copied">Email copiata!</div>
   </footer>
 
   <script>
     function copyEmail() {
-      navigator.clipboard.writeText("matteo.torcigliani.lavoro@gmail.com").then(function() {
-        alert("Email copiata negli appunti!");
-      }, function(err) {
-        alert("Errore nella copia: " + err);
+      navigator.clipboard.writeText("matteo.torcigliani.lavoro@gmail.com").then(function () {
+        const msg = document.getElementById("copied");
+        msg.style.display = "block";
+        setTimeout(() => msg.style.display = "none", 2000);
       });
     }
   </script>
