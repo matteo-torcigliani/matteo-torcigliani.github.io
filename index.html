@@ -89,32 +89,36 @@
       color: #000;
       width: 100%;
       padding: 20px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      flex-wrap: wrap;
       box-sizing: border-box;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 10px;
     }
 
-    .footer-left img {
+    .footer-logo {
+      align-self: flex-start;
+      margin-left: 20px;
+    }
+
+    .footer-logo img {
       width: 40px;
       height: auto;
     }
 
-    .footer-right {
+    .footer-icons {
       display: flex;
-      align-items: center;
       gap: 20px;
     }
 
-    .footer-right img {
+    .footer-icons img {
       width: 28px;
       height: 28px;
       cursor: pointer;
       transition: transform 0.2s ease;
     }
 
-    .footer-right img:hover {
+    .footer-icons img:hover {
       transform: scale(1.1);
     }
 
@@ -151,10 +155,10 @@
 
   <!-- Footer -->
   <footer>
-    <div class="footer-left">
+    <div class="footer-logo">
       <img src="logo.jpg" alt="Logo">
     </div>
-    <div class="footer-right">
+    <div class="footer-icons">
       <button onclick="copyEmail()" style="background:none; border:none; padding:0;">
         <img src="gmail.png" alt="Email Icon">
       </button>
