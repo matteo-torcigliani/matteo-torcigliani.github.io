@@ -64,12 +64,20 @@
       100% { opacity: 0.6; }
     }
 
-    .reels {
+    .reel-carousel {
       display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 24px;
-      margin-bottom: 40px;
+      overflow-x: auto;
+      gap: 20px;
+      scroll-snap-type: x mandatory;
+      padding: 20px 0 40px;
+    }
+
+    .reel-carousel iframe {
+      scroll-snap-align: center;
+      border-radius: 12px;
+      min-width: 300px;
+      height: 540px;
+      border: none;
     }
 
     .socials {
@@ -134,9 +142,10 @@
 
     <h2 style="font-weight:500; font-size:20px; margin-bottom:10px;">Alcuni dei miei lavori</h2>
 
-    <div class="reels">
-      <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/reel/DIWF1KdoXZD/?igsh=MjB5NjZ4YjIxenVn" data-instgrm-version="14" style="width:100%; max-width:320px; margin: 0 auto;"></blockquote>
-      <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/reel/DJcLCxEIKKW/?igsh=cXAxOTB5dDRxbTli" data-instgrm-version="14" style="width:100%; max-width:320px; margin: 0 auto;"></blockquote>
+    <div class="reel-carousel">
+      <iframe src="https://www.instagram.com/reel/DIWF1KdoXZD/?igsh=MjB5NjZ4YjIxenVn" allowfullscreen></iframe>
+      <iframe src="https://www.instagram.com/reel/DJHeckHIZmN/?igsh=MTNmNGo4eHMxNGY0eQ==" allowfullscreen></iframe>
+      <iframe src="https://www.instagram.com/reel/DJcLCxEIKKW/?igsh=cXAxOTB5dDRxbTli" allowfullscreen></iframe>
     </div>
 
     <div class="socials">
@@ -150,8 +159,6 @@
     </div>
 
   </div>
-
-  <script async src="//www.instagram.com/embed.js"></script>
 
   <script>
     function copyEmail() {
