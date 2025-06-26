@@ -5,130 +5,165 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Matteo Torcigliani</title>
   <style>
-    * { margin:0; padding:0; box-sizing:border-box; }
-    body, html { width:100%; height:100%; font-family:'Helvetica Neue', sans-serif; overflow-x:hidden; }
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
 
-    .hero {
-      position: relative;
-      width:100%; height:100vh;
-      overflow:hidden;
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      background: #000;
+    body, html {
+      height: 100%;
+      font-family: 'Helvetica Neue', sans-serif;
       color: #fff;
-      text-align:center;
     }
-    .hero video {
-      position:absolute;
-      top:50%; left:50%;
-      min-width:100%; min-height:100%;
-      width:auto; height:auto;
-      transform:translate(-50%, -50%);
-      object-fit:cover;
-      opacity:0.7;
-      filter: brightness(50%);
-    }
-    .hero-content {
-      position:relative;
-      z-index:2;
-      max-width:80%;
-      animation: fadeIn 2s ease-out 0.5s both;
-    }
-    .hero-content .logo { width:80px; margin-bottom:20px; }
-    .hero-content h1 { font-size:48px; margin-bottom:10px; }
-    .hero-content p { font-size:20px; opacity:0.9; }
 
-    @keyframes fadeIn {
-      from { opacity:0; transform: translateY(20px); }
-      to   { opacity:1; transform: translateY(0); }
+    .background-video {
+      position: fixed;
+      top: 0;
+      left: 0;
+      min-width: 100%;
+      min-height: 100%;
+      z-index: -1;
+      object-fit: cover;
+      filter: brightness(0.4);
+    }
+
+    .overlay {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: space-between;
+      min-height: 100vh;
+      padding: 40px 20px;
+      text-align: center;
+    }
+
+    .avatar {
+      width: 120px;
+      height: 120px;
+      border-radius: 50%;
+      object-fit: cover;
+      box-shadow: 0 0 10px rgba(0,0,0,0.5);
+      margin-bottom: 16px;
+    }
+
+    h1 {
+      font-size: 32px;
+      font-weight: bold;
+      margin-bottom: 8px;
+    }
+
+    .subtitle {
+      font-size: 18px;
+      opacity: 0.85;
     }
 
     .services {
-      padding:60px 20px;
-      background:#fff;
-      text-align:center;
-      color:#111;
+      margin: 60px 0 40px;
     }
-    .services h2 { font-size:28px; margin-bottom:20px; }
-    .service-list {
-      display:flex;
-      flex-wrap:wrap;
-      justify-content:center;
-      gap:30px;
+
+    .services h2 {
+      font-size: 22px;
+      margin-bottom: 20px;
     }
-    .service-item {
-      width:180px;
-      padding:20px;
-      border-radius:8px;
-      background: #f9f9f9;
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
+
+    .service-boxes {
+      display: flex;
+      gap: 20px;
+      flex-wrap: wrap;
+      justify-content: center;
     }
-    .service-item:hover {
-      transform: translateY(-6px);
-      box-shadow: 0 6px 20px rgba(0,0,0,0.1);
+
+    .service-box {
+      background: rgba(255, 255, 255, 0.1);
+      padding: 20px;
+      border-radius: 12px;
+      min-width: 140px;
+      transition: 0.3s ease;
     }
-    .service-item img {
-      width:48px; height:48px; margin-bottom:10px;
+
+    .service-box:hover {
+      background: rgba(255, 255, 255, 0.2);
+      transform: scale(1.05);
     }
-    .service-item p { font-size:16px; font-weight:500; }
+
+    .socials {
+      margin: 40px 0 20px;
+    }
+
+    .socials a {
+      margin: 0 10px;
+      font-size: 24px;
+      color: #fff;
+      transition: 0.3s;
+    }
+
+    .socials a:hover {
+      color: #ffcc00;
+    }
 
     footer {
-      padding:40px 20px;
-      text-align:center;
-      background:#fff;
-      color:#111;
+      width: 100%;
+      display: flex;
+      justify-content: flex-start;
+      align-items: center;
+      padding: 20px;
+      position: relative;
     }
-    .socials img {
-      width:32px; height:32px; margin:0 8px;
-      transition: transform 0.2s ease;
+
+    .logo-bottom {
+      width: 80px;
+      opacity: 0.75;
     }
-    .socials img:hover { transform: scale(1.1); }
-    .copy-email { cursor:pointer; color:#0077cc; text-decoration:underline; }
+
+    @media (max-width: 600px) {
+      .service-box {
+        width: 100%;
+      }
+
+      footer {
+        justify-content: center;
+      }
+    }
   </style>
 </head>
 <body>
 
-  <!-- HERO -->
-  <section class="hero">
-    <video autoplay muted loop playsinline>
-      <source src="https://player.vimeo.com/external/395819444.sd.mp4?s=..." type="video/mp4">
-    </video>
-    <div class="hero-content">
-      <img src="logo.jpg" alt="Logo" class="logo"/>
-      <h1>Matteo Torcigliani</h1>
-      <p>Trasformo idee in emozioni</p>
-    </div>
-  </section>
+  <!-- SFONDO VIDEO -->
+  <video class="background-video" autoplay muted loop playsinline>
+    <source src="https://player.vimeo.com/external/392128363.sd.mp4?s=48f67f7e3d8002b22b1546e44c81283dc74aaf83&profile_id=165&oauth2_token_id=57447761" type="video/mp4">
+    Il tuo browser non supporta il video.
+  </video>
 
-  <!-- SERVIZI -->
-  <section class="services">
-    <h2>I miei servizi</h2>
-    <div class="service-list">
-      <div class="service-item">
-        <img src="video-icon.png" alt="Video Editing"/>
-        <p>Video Editing</p>
-      </div>
-      <div class="service-item">
-        <img src="web-icon.png" alt="Web Design"/>
-        <p>Web Design</p>
-      </div>
-    </div>
-  </section>
+  <!-- CONTENUTO -->
+  <div class="overlay">
 
-  <!-- FOOTER -->
-  <footer>
-    <div class="socials">
-      <a href="https://www.instagram.com/matteo.torcigliani" target="_blank">
-        <img src="instagram.png" alt="Instagram"/>
-      </a>
-    </div>
     <div>
-      <span class="copy-email" onclick="navigator.clipboard.writeText('matteo.torcigliani.lavoro@gmail.com'); alert('Email copiata!')">
-        matt...@gmail.com
-      </span>
+      <img src="avatar.jpg" alt="Matteo" class="avatar">
+      <h1>Matteo Torcigliani</h1>
+      <p class="subtitle">Trasformo idee in emozioni</p>
     </div>
-  </footer>
+
+    <div class="services">
+      <h2>I miei servizi</h2>
+      <div class="service-boxes">
+        <div class="service-box">🎥 Video Editing</div>
+        <div class="service-box">🎬 Video Design</div>
+        <div class="service-box">💻 Web Design</div>
+      </div>
+    </div>
+
+    <div class="socials">
+      <a href="https://www.instagram.com/matteo.torcigliani" target="_blank">📸</a>
+      <a href="mailto:matteo.torcigliani.lavoro@gmail.com">📧</a>
+    </div>
+
+    <!-- LOGO IN BASSO A SINISTRA -->
+    <footer>
+      <img src="logo.jpg" alt="Logo Matteo Torcigliani" class="logo-bottom" />
+    </footer>
+
+  </div>
 
 </body>
 </html>
