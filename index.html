@@ -5,172 +5,130 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Matteo Torcigliani</title>
   <style>
-    :root {
-      --max-width: 800px;
+    * { margin:0; padding:0; box-sizing:border-box; }
+    body, html { width:100%; height:100%; font-family:'Helvetica Neue', sans-serif; overflow-x:hidden; }
+
+    .hero {
+      position: relative;
+      width:100%; height:100vh;
+      overflow:hidden;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      background: #000;
+      color: #fff;
+      text-align:center;
+    }
+    .hero video {
+      position:absolute;
+      top:50%; left:50%;
+      min-width:100%; min-height:100%;
+      width:auto; height:auto;
+      transform:translate(-50%, -50%);
+      object-fit:cover;
+      opacity:0.7;
+      filter: brightness(50%);
+    }
+    .hero-content {
+      position:relative;
+      z-index:2;
+      max-width:80%;
+      animation: fadeIn 2s ease-out 0.5s both;
+    }
+    .hero-content .logo { width:80px; margin-bottom:20px; }
+    .hero-content h1 { font-size:48px; margin-bottom:10px; }
+    .hero-content p { font-size:20px; opacity:0.9; }
+
+    @keyframes fadeIn {
+      from { opacity:0; transform: translateY(20px); }
+      to   { opacity:1; transform: translateY(0); }
     }
 
-    body {
-      margin: 0;
-      padding: 0;
-      font-family: 'Helvetica Neue', sans-serif;
-      background: #fff;
-      color: #111;
-      display: flex;
-      justify-content: center;
+    .services {
+      padding:60px 20px;
+      background:#fff;
+      text-align:center;
+      color:#111;
     }
-
-    .container {
-      width: 100%;
-      max-width: var(--max-width);
-      padding: 0 16px;
-      text-align: center;
+    .services h2 { font-size:28px; margin-bottom:20px; }
+    .service-list {
+      display:flex;
+      flex-wrap:wrap;
+      justify-content:center;
+      gap:30px;
     }
-
-    header {
-      display: flex;
-      justify-content: flex-start;
-      align-items: center;
-      padding: 20px 0;
+    .service-item {
+      width:180px;
+      padding:20px;
+      border-radius:8px;
+      background: #f9f9f9;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
     }
-
-    .logo {
-      width: 60px;
-      height: auto;
+    .service-item:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 6px 20px rgba(0,0,0,0.1);
     }
-
-    .avatar {
-      width: 90px;
-      height: 90px;
-      border-radius: 50%;
-      margin: 20px auto 10px;
-      object-fit: cover;
+    .service-item img {
+      width:48px; height:48px; margin-bottom:10px;
     }
+    .service-item p { font-size:16px; font-weight:500; }
 
-    h1 {
-      font-size: 24px;
-      margin: 0;
+    footer {
+      padding:40px 20px;
+      text-align:center;
+      background:#fff;
+      color:#111;
     }
-
-    .roles {
-      margin: 10px auto 25px;
-      font-size: 16px;
-      font-weight: 500;
-      color: #555;
-      animation: fade 2s infinite alternate;
-    }
-
-    @keyframes fade {
-      0% { opacity: 1; }
-      100% { opacity: 0.6; }
-    }
-
-    .reel-carousel {
-      display: flex;
-      overflow-x: auto;
-      gap: 20px;
-      scroll-snap-type: x mandatory;
-      padding: 20px 0 40px;
-    }
-
-    .reel-carousel iframe {
-      scroll-snap-align: center;
-      border-radius: 12px;
-      min-width: 300px;
-      height: 540px;
-      border: none;
-    }
-
-    .socials {
-      margin: 20px 0 40px;
-    }
-
-    .socials a,
-    .email-btn {
-      display: inline-block;
-      margin: 8px 12px;
-      background: none;
-      border: none;
-      cursor: pointer;
-    }
-
     .socials img {
-      width: 32px;
-      height: 32px;
+      width:32px; height:32px; margin:0 8px;
       transition: transform 0.2s ease;
     }
-
-    .socials img:hover {
-      transform: scale(1.1);
-    }
-
-    .copied {
-      font-size: 13px;
-      color: green;
-      margin-top: 5px;
-    }
-
-    @media (min-width: 700px) {
-      .avatar {
-        width: 100px;
-        height: 100px;
-      }
-
-      h1 {
-        font-size: 28px;
-      }
-
-      .roles {
-        font-size: 18px;
-      }
-    }
+    .socials img:hover { transform: scale(1.1); }
+    .copy-email { cursor:pointer; color:#0077cc; text-decoration:underline; }
   </style>
 </head>
 <body>
 
-  <div class="container">
-
-    <header>
+  <!-- HERO -->
+  <section class="hero">
+    <video autoplay muted loop playsinline>
+      <source src="https://player.vimeo.com/external/395819444.sd.mp4?s=..." type="video/mp4">
+    </video>
+    <div class="hero-content">
       <img src="logo.jpg" alt="Logo" class="logo"/>
-    </header>
-
-    <img src="avatar.jpg" alt="Matteo" class="avatar" />
-    <h1>Matteo Torcigliani</h1>
-
-    <div class="roles">
-      Web Designer / Video Editor 
+      <h1>Matteo Torcigliani</h1>
+      <p>Trasformo idee in emozioni</p>
     </div>
+  </section>
 
-    <h2 style="font-weight:500; font-size:20px; margin-bottom:10px;">Alcuni dei miei lavori</h2>
-
-    <div class="reel-carousel">
-      <iframe src="https://www.instagram.com/reel/DIWF1KdoXZD/?igsh=MjB5NjZ4YjIxenVn" allowfullscreen></iframe>
-      <iframe src="https://www.instagram.com/reel/DJHeckHIZmN/?igsh=MTNmNGo4eHMxNGY0eQ==" allowfullscreen></iframe>
-      <iframe src="https://www.instagram.com/reel/DJcLCxEIKKW/?igsh=cXAxOTB5dDRxbTli" allowfullscreen></iframe>
+  <!-- SERVIZI -->
+  <section class="services">
+    <h2>I miei servizi</h2>
+    <div class="service-list">
+      <div class="service-item">
+        <img src="video-icon.png" alt="Video Editing"/>
+        <p>Video Editing</p>
+      </div>
+      <div class="service-item">
+        <img src="web-icon.png" alt="Web Design"/>
+        <p>Web Design</p>
+      </div>
     </div>
+  </section>
 
+  <!-- FOOTER -->
+  <footer>
     <div class="socials">
-      <a href="https://www.instagram.com/matteo.torcigliani?igsh=aDdyNjJicm1tNmNt&utm_source=qr" target="_blank">
-        <img src="instagram.png" alt="Instagram" />
+      <a href="https://www.instagram.com/matteo.torcigliani" target="_blank">
+        <img src="instagram.png" alt="Instagram"/>
       </a>
-      <button class="email-btn" onclick="copyEmail()">
-        <img src="gmail.png" alt="Gmail" />
-      </button>
-      <div class="copied" id="copied-text" style="display:none;">Email copiata negli appunti!</div>
     </div>
-
-  </div>
-
-  <script>
-    function copyEmail() {
-      const email = "matteo.torcigliani.lavoro@gmail.com";
-      navigator.clipboard.writeText(email).then(() => {
-        document.getElementById("copied-text").style.display = "block";
-        setTimeout(() => {
-          document.getElementById("copied-text").style.display = "none";
-        }, 2000);
-      });
-    }
-  </script>
+    <div>
+      <span class="copy-email" onclick="navigator.clipboard.writeText('matteo.torcigliani.lavoro@gmail.com'); alert('Email copiata!')">
+        matt...@gmail.com
+      </span>
+    </div>
+  </footer>
 
 </body>
 </html>
