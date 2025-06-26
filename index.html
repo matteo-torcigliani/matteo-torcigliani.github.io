@@ -7,150 +7,134 @@
   <style>
     body {
       margin: 0;
-      font-family: "Segoe UI", sans-serif;
-      background: linear-gradient(145deg, #1c1c1c, #121212);
+      font-family: 'Segoe UI', sans-serif;
+      background: #111;
       color: white;
       text-align: center;
     }
 
-    .hero {
-      padding: 80px 20px 30px;
+    header {
+      padding: 60px 20px 30px;
     }
 
-    .hero img {
+    header img {
       width: 120px;
       height: 120px;
-      object-fit: cover;
       border-radius: 50%;
-      border: 3px solid white;
+      border: 4px solid #fff;
+      margin-bottom: 20px;
     }
 
     h1 {
-      margin: 20px 0 5px;
-      font-size: 24px;
+      margin: 0;
+      font-size: 28px;
     }
 
     p {
-      font-size: 16px;
       color: #ccc;
+      font-size: 16px;
     }
 
-    .services {
-      background: rgba(255,255,255,0.05);
-      border-radius: 10px;
-      margin: 20px auto;
-      padding: 20px;
-      width: fit-content;
-      box-shadow: 0 0 10px rgba(0,0,0,0.2);
+    .btn-container {
+      margin: 30px 0;
     }
 
-    .services h2 {
-      margin-bottom: 10px;
-    }
-
-    .button {
-      background: #2e2e2e;
-      color: white;
-      border: none;
-      padding: 10px 20px;
+    .btn-container button {
+      padding: 12px 18px;
       margin: 5px;
+      border: none;
       border-radius: 8px;
-      cursor: pointer;
+      background: #222;
+      color: white;
       font-size: 14px;
+      cursor: pointer;
     }
 
+    /* Carosello */
     .carousel {
       display: flex;
       justify-content: center;
-      flex-wrap: wrap;
       gap: 20px;
-      padding: 40px 10px;
+      margin: 40px 0;
+      overflow-x: auto;
+      padding: 20px;
+      scroll-snap-type: x mandatory;
     }
 
-    .carousel iframe {
-      width: 180px;
-      height: 320px;
-      border-radius: 10px;
-      pointer-events: none;
+    .carousel video {
+      width: 200px;
+      height: 355px;
+      border-radius: 12px;
+      scroll-snap-align: center;
+      transition: transform 0.3s ease-in-out;
+      object-fit: cover;
+    }
+
+    .carousel video:hover {
+      transform: scale(1.1);
     }
 
     footer {
-      background: #f2f2f2;
-      color: #000;
-      padding: 20px;
-      position: relative;
-    }
-
-    .footer-logo {
-      position: absolute;
-      bottom: 20px;
-      left: 20px;
-      width: 30px;
-    }
-
-    .footer-icons {
+      background: white;
+      padding: 15px;
       display: flex;
       justify-content: center;
-      gap: 20px;
       align-items: center;
+      gap: 20px;
     }
 
-    .footer-icons img {
-      width: 24px;
-      height: 24px;
+    footer img {
+      width: 30px;
+      height: 30px;
       cursor: pointer;
+      transition: transform 0.2s ease;
     }
 
-    .copied {
-      font-size: 12px;
-      color: green;
-      margin-top: 8px;
-      display: none;
+    footer img:hover {
+      transform: scale(1.2);
+    }
+
+    /* Logo in basso a sinistra */
+    .logo-footer {
+      position: absolute;
+      bottom: 15px;
+      left: 15px;
+      width: 40px;
     }
   </style>
 </head>
 <body>
 
-  <!-- HERO -->
-  <div class="hero">
-    <img src="avatar.jpg" alt="Avatar">
+  <header>
+    <img src="avatar.jpg" alt="Avatar" />
     <h1>Matteo Torcigliani</h1>
     <p>Trasformo idee in emozioni</p>
-  </div>
 
-  <!-- SERVIZI -->
-  <div class="services">
-    <h2>I miei servizi</h2>
-    <button class="button">🎬 Video Editing</button>
-    <button class="button">💻 Web Design</button>
-  </div>
-
-  <!-- VIDEO CAROUSEL -->
-  <div class="carousel">
-    <iframe src="https://player.vimeo.com/video/959661947?background=1&autoplay=1&loop=1&muted=1" frameborder="0" allow="autoplay"></iframe>
-    <iframe src="https://player.vimeo.com/video/959661950?background=1&autoplay=1&loop=1&muted=1" frameborder="0" allow="autoplay"></iframe>
-    <iframe src="https://player.vimeo.com/video/959661952?background=1&autoplay=1&loop=1&muted=1" frameborder="0" allow="autoplay"></iframe>
-  </div>
-
-  <!-- FOOTER -->
-  <footer>
-    <img class="footer-logo" src="logo.jpg" alt="Logo">
-    <div class="footer-icons">
-      <img src="gmail.png" alt="Gmail" onclick="copyEmail()">
-      <img src="instagram.png" alt="Instagram" onclick="window.open('https://www.instagram.com/tuo_username_lavoro', '_blank')">
+    <div class="btn-container">
+      <button>🎬 Video Editing</button>
+      <button>💻 Web Design</button>
     </div>
-    <div id="copied" class="copied">Email copiata!</div>
+  </header>
+
+  <!-- Carosello Video -->
+  <div class="carousel">
+    <video src="video1.mp4" autoplay muted loop playsinline></video>
+    <video src="video2.mp4" autoplay muted loop playsinline></video>
+    <video src="video3.mp4" autoplay muted loop playsinline></video>
+  </div>
+
+  <!-- Footer -->
+  <footer>
+    <a href="mailto:matteo.torcigliani.lavoro@gmail.com">
+      <img src="gmail.png" alt="Gmail">
+    </a>
+    <a href="https://www.instagram.com/tuo_profilo_instagram" target="_blank">
+      <img src="instagram.png" alt="Instagram">
+    </a>
   </footer>
 
-  <script>
-    function copyEmail() {
-      navigator.clipboard.writeText("matteo.torcigliani.lavoro@gmail.com").then(function () {
-        const msg = document.getElementById("copied");
-        msg.style.display = "block";
-        setTimeout(() => msg.style.display = "none", 2000);
-      });
-    }
-  </script>
+  <!-- Logo in basso a sinistra -->
+  <img src="logo.jpg" class="logo-footer" alt="Logo">
 
 </body>
 </html>
